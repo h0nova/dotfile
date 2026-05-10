@@ -10,6 +10,8 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/.local/bin:$PATH"
 alias fastfetch='~/.config/fastfetch/launch.sh'
 
+~/.config/fastfetch/launch.sh
+
 eval "$(starship init zsh)"
 
 # Transient prompt — replace executed prompt with a colored arrow
