@@ -6,12 +6,18 @@ colors_path = os.path.expanduser("~/.config/hypr/scripts/quickshell/qs_colors.js
 with open(colors_path) as f:
     c = json.load(f)
 
+INVALID_GTK3 = re.compile(
+    r'^\s*(?:filter|transform|border-spacing|-gtk-icon-filter)\s*:.*$',
+    re.MULTILINE
+)
+
 def patch(template_path, output_path, replacements):
     src = template_path if os.path.exists(template_path) else output_path
     with open(src) as f:
         css = f.read()
     for old, new in replacements:
         css = re.sub(re.escape(old), new, css, flags=re.IGNORECASE)
+    css = INVALID_GTK3.sub('', css)
     with open(output_path, "w") as f:
         f.write(css)
     print(f"Generated {output_path}")
