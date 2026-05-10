@@ -1,0 +1,69 @@
+* {
+    background-image: none;
+    font-size: 14px;
+    font-family: "JetBrains Mono";
+}
+
+window {
+    background-color: rgba(10, 15, 13, 0.75);
+}
+
+button {
+    color: rgba(222, 228, 222, 0.95);
+    background-color: rgba(27, 33, 30, 0.88);
+    outline-style: none;
+    border: none;
+    border-width: 0px;
+    background-repeat: no-repeat;
+    background-position: center 38%;
+    background-size: 36%;
+    border-radius: 16px;
+    box-shadow: none;
+    text-shadow: none;
+    margin: 12px;
+    padding-top: 110px;
+    padding-bottom: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+button:focus {
+    background-color: rgba(37, 43, 40, 0.80);
+    background-size: 40%;
+    color: rgba(222, 228, 222, 1.0);
+}
+
+button:hover {
+    background-color: rgba(140, 213, 181, 0.18);
+    background-size: 42%;
+    background-position: center 36%;
+    border-radius: 20px;
+    color: #8cd5b5;
+    margin: 4px 12px;
+}
+
+#lock {
+    background-image: image(url("/home/h0nova/.config/wlogout/icons/lock_white.png"),
+                            url("/usr/share/wlogout/icons/lock.png"));
+}
+#logout {
+    background-image: image(url("/home/h0nova/.config/wlogout/icons/logout_white.png"),
+                            url("/usr/share/wlogout/icons/logout.png"));
+}
+#shutdown {
+    background-image: image(url("/home/h0nova/.config/wlogout/icons/shutdown_white.png"),
+                            url("/usr/share/wlogout/icons/shutdown.png"));
+}
+#reboot {
+    background-image: image(url("/home/h0nova/.config/wlogout/icons/reboot_white.png"),
+                            url("/usr/share/wlogout/icons/reboot.png"));
+}
+#suspend {
+    background-image: image(url("/home/h0nova/.config/wlogout/icons/suspend_white.png"),
+                            url("/usr/share/wlogout/icons/suspend.png"));
+}
+#hibernate {
+    background-image: image(url("/home/h0nova/.config/wlogout/icons/hibernate_white.png"),
+                            url("/usr/share/wlogout/icons/hibernate.png"));
+}

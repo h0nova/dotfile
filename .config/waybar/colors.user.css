@@ -1,0 +1,8 @@
+/* Manual color overrides — loaded AFTER matugen-generated colors.css.
+   Colors defined here override the generated values.
+   This file is NEVER touched by apply-theme.sh.
+
+   Example: override the background transparency
+   @define-color background  rgba(30, 30, 46, 0.9);
+   @define-color border_color rgba(203, 166, 247, 0.3);
+*/

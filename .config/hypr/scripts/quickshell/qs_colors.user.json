@@ -1,0 +1,12 @@
+{
+  "_info": "Keys starting with _ are ignored. Remove _ prefix to activate an override.",
+  "_base":     "#222222",
+  "_mauve":    "#cba6f7",
+  "_blue":     "#89b4fa",
+  "_peach":    "#fab387",
+  "_green":    "#a6e3a1",
+  "_pink":     "#f5c2e7",
+  "_teal":     "#94e2d5",
+  "_red":      "#f38ba8",
+  "_yellow":   "#f9e2af"
+}

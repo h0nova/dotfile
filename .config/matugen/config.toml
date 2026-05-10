@@ -1,0 +1,44 @@
+[config.wallpaper]
+command = "awww img --transition-type random --transition-fps 60 {{ image }}"
+set = true
+
+[templates.quickshell]
+input_path  = "~/.config/matugen/templates/colors.json.template"
+output_path = "~/.config/hypr/scripts/quickshell/qs_colors.json"
+
+[templates.hyprland]
+input_path  = "~/.config/matugen/templates/hypr-colors.conf"
+output_path = "~/.config/hypr/colors.conf"
+post_hook   = "hyprctl reload"
+
+[templates.waybar]
+input_path  = "~/.config/matugen/templates/waybar-colors.css"
+output_path = "~/.config/waybar/colors.css"
+
+[templates.waybar_palette]
+input_path  = "~/.config/matugen/templates/waybar-palette.css"
+output_path = "~/.config/waybar/palette.css"
+post_hook   = "pkill -SIGUSR2 waybar"
+
+[templates.kitty]
+input_path  = "~/.config/matugen/templates/kitty-colors.conf"
+output_path = "~/.config/kitty/colors.conf"
+post_hook   = "pkill -SIGUSR1 kitty"
+
+[templates.gtk4]
+input_path  = "~/.config/matugen/templates/libadwaita.css"
+output_path = "~/.config/gtk-4.0/libadwaita.css"
+
+[templates.gtk3]
+input_path  = "~/.config/matugen/templates/gtk3-override.css"
+output_path = "~/.config/gtk-3.0/gtk.css"
+post_hook   = "pkill xsettingsd; xsettingsd &"
+
+[templates.firefox]
+input_path  = "~/.config/matugen/templates/firefox-content.css"
+output_path = "~/.config/mozilla/firefox/ez4immic.default-release/chrome/userContent.css"
+
+[templates.firefox_chrome]
+input_path  = "~/.config/matugen/templates/firefox-chrome.css"
+output_path = "~/.config/mozilla/firefox/ez4immic.default-release/chrome/userChrome.css"
+

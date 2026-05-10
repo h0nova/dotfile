@@ -1,0 +1,150 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 54,
+    "spacing": 0,
+    "exclusive": true,
+
+    "modules-left":   ["group/hw", "group/ws"],
+    "modules-center": [],
+    "modules-right":  ["group/info", "group/systray"],
+
+    // ─── GROUPS ──────────────────────────────────────────────────────────────
+
+    "group/hw": {
+        "orientation": "horizontal",
+        "modules": ["temperature#cpu", "custom/gpu", "memory", "battery"]
+    },
+
+    "group/ws": {
+        "orientation": "horizontal",
+        "modules": ["hyprland/workspaces", "hyprland/window"]
+    },
+
+    "group/info": {
+        "orientation": "horizontal",
+        "modules": ["network", "pulseaudio", "hyprland/language", "custom/updates"]
+    },
+
+    "group/systray": {
+        "orientation": "horizontal",
+        "modules": ["tray"]
+    },
+
+    // ─── HARDWARE ────────────────────────────────────────────────────────────
+
+    "temperature#cpu": {
+        "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+        "critical-threshold": 85,
+        "format": "󰔏 {temperatureC}°",
+        "format-critical": "󰔏 {temperatureC}°",
+        "tooltip": false,
+        "interval": 3
+    },
+
+    "custom/gpu": {
+        "exec": "~/.config/waybar/scripts/gpu-temp.sh",
+        "interval": 5,
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": "󰾆 {percentage}%",
+        "tooltip-format": "RAM: {used:.1f} / {total:.1f} GiB\nSwap: {swapUsed:.1f} / {swapTotal:.1f} GiB",
+        "interval": 5
+    },
+
+    "battery": {
+        "bat": "BAT1",
+        "full-at": 98,
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-full": "󰁹 {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "states": { "warning": 30, "critical": 15 },
+        "tooltip-format": "{timeTo}\nPower: {power:.1f} W",
+        "interval": 30
+    },
+
+    // ─── WORKSPACES ──────────────────────────────────────────────────────────
+
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-click": "activate",
+        "sort-by-number": true,
+        "all-outputs": false,
+        "show-special": false
+    },
+
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 36,
+        "separate-outputs": true,
+        "rewrite": {
+            "^(.*) — Mozilla Firefox$":   "  $1",
+            "^(.*) - Mozilla Firefox$":   "  $1",
+            "^Mozilla Firefox$":           "  Firefox",
+            "^(.*) — Chromium$":           "  $1",
+            "^(.*) - Visual Studio Code$": "󰨞  $1",
+            "^(.*) — Dolphin$":            "  $1",
+            "^Telegram.*$":                "  Telegram",
+            "^(.*) - kitty$":              "  $1",
+            "^(.*) — kitty$":              "  $1",
+            "^nvim(.*)$":                  "  nvim$1",
+            "^(.*)nvim(.*)$":              "  $1nvim$2"
+        }
+    },
+
+    // ─── STATUS ──────────────────────────────────────────────────────────────
+
+    "network": {
+        "interval": 2,
+        "format-wifi":        "󰤨 {essid}",
+        "format-ethernet":    "󰈀 {ifname}",
+        "format-linked":      "󰈀 {ifname}",
+        "format-disconnected": "󰤭 Offline",
+        "tooltip-format-wifi":
+            "󰤨  {essid}   {signalStrength}%\n󰆇  {ipaddr}/{cidr}\n󰇚  {bandwidthDownBytes}/s\n󰕒  {bandwidthUpBytes}/s\n   {frequency} GHz",
+        "tooltip-format-ethernet":
+            "󰈀  {ifname}\n󰆇  {ipaddr}/{cidr}\n󰇚  {bandwidthDownBytes}/s\n󰕒  {bandwidthUpBytes}/s",
+        "tooltip-format-disconnected": "󰤭  No connection"
+    },
+
+    "pulseaudio": {
+        "format":       "{icon} {volume}%",
+        "format-muted": "󰖁 Muted",
+        "format-icons": {
+            "headphones": "󰋋",
+            "headset":    "󰋎",
+            "default":    ["󰕿", "󰖀", "󰕾"]
+        },
+        "tooltip-format": "󰓃  {desc}\n   {volume}%",
+        "on-click":     "pavucontrol",
+        "scroll-step":  5
+    },
+
+    "hyprland/language": {
+        "format":    "󰌌 {short}",
+        "format-us": "󰌌 EN",
+        "format-ua": "󰌌 UA",
+        "on-click":  "hyprctl switchxkblayout all next"
+    },
+
+    "custom/updates": {
+        "exec":        "~/.config/waybar/scripts/updates.sh",
+        "return-type": "json",
+        "format":      "󰮯 {text}",
+        "interval":    600,
+        "signal":      8,
+        "on-click":    "~/.config/waybar/scripts/update-run.sh"
+    },
+
+    // ─── TRAY ────────────────────────────────────────────────────────────────
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10,
+        "show-passive-items": true
+    }
+}

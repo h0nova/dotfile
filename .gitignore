@@ -1,0 +1,29 @@
+# Sensitive
+.config/hypr/scripts/quickshell/calendar/.env
+
+# Spicetify — user-specific
+.config/spicetify/config-xpui.ini
+.config/spicetify/Backup/
+.config/spicetify/CustomApps/
+.config/spicetify/Extensions/
+
+# Generated at runtime
+.config/hypr/scripts/quickshell/qs_colors.json
+.config/hypr/scripts/quickshell/snapshots/
+.config/hypr/scripts/quickshell/calendar/raw_weather.json
+.config/waybar/colors.css
+.config/waybar/palette.css
+.config/kitty/colors.conf
+.config/hypr/colors.conf
+
+# Wallbash generated files
+.config/gtk-3.0/gtk.css
+.config/Kvantum/wallbash/wallbash.svg
+
+# Logs and cache
+*.log
+*.cache
+__pycache__/
+
+# Backup
+.dotfiles-backup/

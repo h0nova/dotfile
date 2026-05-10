@@ -1,0 +1,92 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "kitty-direct",
+    "source": "$HOME/.config/fastfetch/assets/current.png",
+    "width": 30,
+    "height": 13,
+    "padding": {
+      "top": 1,
+      "left": 2,
+      "right": 4
+    }
+  },
+  "display": {
+    "separator": " "
+  },
+  "modules": [
+    {
+      "key": "╭───────────╮",
+      "type": "custom"
+    },
+    {
+      "key": "│ {#31}󰀄 user    │",
+      "type": "title",
+      "format": "{user-name}"
+    },
+    {
+      "key": "│ {#33}󰅐 uptime  │",
+      "type": "uptime"
+    },
+    {
+      "key": "│ {#32}󰍹 display │",
+      "type": "display",
+      "compactType": "original-with-refresh-rate"
+    },
+    {
+      "key": "│ {#34}{icon} distro  │",
+      "type": "os"
+    },
+    {
+      "key": "│ {#35}󰌽 kernel  │",
+      "type": "kernel"
+    },
+    {
+      "key": "│ {#36}󱗃 wm      │",
+      "type": "wm"
+    },
+    {
+      "key": "│ {#31}󰆍 term    │",
+      "type": "terminal"
+    },
+    {
+      "key": "│ {#32}󱦃 shell   │",
+      "type": "shell"
+    },
+    {
+      "key": "│ {#33}󰏖 apps    │",
+      "type": "packages"
+    },
+    {
+      "key": "│ {#34}󰉉 disk    │",
+      "type": "disk",
+      "folders": "/"
+    },
+    {
+      "key": "│ {#36}󰍛 memory  │",
+      "type": "memory"
+    },
+    {
+      "key": "│ {#35}󰓖 font    │",
+      "type": "terminalfont"
+    },
+    {
+      "key": "│ {#33}󰃭 age     │",
+      "type": "command",
+      "text": "birth=$(stat -c %W /); now=$(date +%s); echo $(( (now - birth) / 86400 )) days"
+    },
+    {
+      "key": "├───────────┤",
+      "type": "custom"
+    },
+    {
+      "key": "│ {#39}󰏘 colors  │",
+      "type": "colors",
+      "symbol": "circle"
+    },
+    {
+      "key": "╰───────────╯",
+      "type": "custom"
+    }
+  ]
+}

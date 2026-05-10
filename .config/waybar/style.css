@@ -1,0 +1,244 @@
+@import "palette.css";
+@import "colors.css";
+@import "colors.user.css";
+
+/* ═══════════════════════════════════════════════════════════
+   RESET
+   ═══════════════════════════════════════════════════════════ */
+* {
+    font-family: "JetBrains Mono", "Iosevka Nerd Font", monospace;
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    text-shadow: none;
+    transition: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BAR
+   ═══════════════════════════════════════════════════════════ */
+window#waybar {
+    background: transparent;
+    color: @text;
+}
+
+window#waybar > box {
+    margin: 0px 5px 0px 5px;
+    padding: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ISLAND (PILL)
+   ═══════════════════════════════════════════════════════════ */
+#hw,
+#ws,
+#info,
+#systray {
+    background: rgba(10, 15, 13, 0.88);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 8px 5px 4px 5px;
+    padding: 0 6px;
+    color: @text;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GROUP 1 — HARDWARE
+   ═══════════════════════════════════════════════════════════ */
+#temperature-cpu,
+#custom-gpu,
+#memory,
+#battery {
+    padding: 0 10px;
+    color: @subtext0;
+}
+
+#temperature-cpu.critical {
+    color: @red;
+    font-weight: 700;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @accent;
+}
+
+#battery.full {
+    color: @green;
+}
+
+#battery.warning:not(.charging) {
+    color: @peach;
+}
+
+#battery.critical:not(.charging) {
+    color: @red;
+    font-weight: 700;
+}
+
+#temperature-cpu {
+    border-right: 1px solid @accent_10;
+    padding-right: 12px;
+}
+
+#custom-gpu {
+    border-right: 1px solid @accent_10;
+    padding-right: 12px;
+}
+
+#memory {
+    border-right: 1px solid @accent_10;
+    padding-right: 12px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GROUP 2 — WORKSPACES + ACTIVE WINDOW
+   ═══════════════════════════════════════════════════════════ */
+#workspaces {
+    padding: 0 6px;
+    border-right: 1px solid @accent_10;
+    margin-right: 2px;
+}
+
+#workspaces button {
+    all: unset;
+    background: transparent;
+    border-radius: 50%;
+    min-width: 24px;
+    min-height: 24px;
+    padding: 0;
+    margin: 7px 3px;
+    color: @inactive;
+    border: 1.5px solid @accent_14;
+    font-size: 11px;
+    font-weight: 700;
+    transition: background 200ms ease,
+                color 200ms ease,
+                border-color 200ms ease,
+                box-shadow 280ms ease;
+}
+
+#workspaces button label {
+    padding: 0;
+    margin: 0;
+    min-width: 24px;
+    min-height: 24px;
+}
+
+#workspaces button.occupied {
+    color: @subtext1;
+    border-color: @accent_35;
+}
+
+#workspaces button.active {
+    background: @accent;
+    color: @base;
+    border-color: @accent;
+    font-weight: 900;
+    animation: ws-pop 350ms cubic-bezier(0.34, 1.56, 0.64, 1),
+               ws-glow 2.8s ease-in-out 350ms infinite;
+}
+
+#workspaces button:hover {
+    background: @accent_12;
+    color: @accent;
+    border-color: @accent_55;
+    box-shadow: 0 0 8px @accent_35;
+}
+
+#workspaces button.urgent {
+    background: @red_15;
+    border-color: @red;
+    color: @red;
+    animation: ws-urgent 1s ease-in-out infinite;
+}
+
+@keyframes ws-pop {
+    0%   { box-shadow: 0 0 0 0   @accent_10; }
+    45%  { box-shadow: 0 0 0 5px @accent_50; }
+    100% { box-shadow: 0 0 0 2px @accent_20; }
+}
+
+@keyframes ws-glow {
+    0%   { box-shadow: 0 0 0 2px @accent_20; }
+    50%  { box-shadow: 0 0 0 3px @accent_50, 0 0 10px @accent_18; }
+    100% { box-shadow: 0 0 0 2px @accent_20; }
+}
+
+@keyframes ws-urgent {
+    0%   { box-shadow: none; }
+    50%  { box-shadow: 0 0 10px @red_65; }
+    100% { box-shadow: none; }
+}
+
+#window {
+    padding: 0 12px;
+    color: @text;
+    font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GROUP 3 — NETWORK / AUDIO / LANGUAGE / UPDATES
+   ═══════════════════════════════════════════════════════════ */
+#network,
+#pulseaudio,
+#language,
+#custom-updates {
+    padding: 0 11px;
+    color: @subtext0;
+}
+
+#network {
+    border-right: 1px solid @accent_10;
+    padding-right: 13px;
+}
+
+#pulseaudio {
+    border-right: 1px solid @accent_10;
+    padding-right: 13px;
+}
+
+#language {
+    border-right: 1px solid @accent_10;
+    padding-right: 13px;
+    font-weight: 600;
+    color: @peach;
+}
+
+#network.disconnected {
+    color: @red;
+}
+
+#pulseaudio.muted {
+    color: @inactive;
+}
+
+#custom-updates.updated {
+    color: @inactive;
+}
+
+#custom-updates.updates {
+    color: @peach;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GROUP 4 — TRAY
+   ═══════════════════════════════════════════════════════════ */
+#tray {
+    padding: 0 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: @red_12;
+    border-radius: 6px;
+}
